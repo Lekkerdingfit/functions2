@@ -1,11 +1,27 @@
+// API key connect 
 const openCageKey = "00df02b1a18849ab9c07fce3a53de1e7";
 
+let currentTimes = [];
+let currentUVs = [];
+
+//fully understand this part based on thue UV number
 function getUVColor(uv) {
-  if (uv < 3) return '#fff8dc'; // Very ligth toast
-  if (uv < 6) return '#f5deb3'; // Light golden
-  if (uv < 8) return '#d2b48c'; // Toasted
-  if(uv<10) return '#a0522d'; //Dark Toast
+  if (uv < 2) return '#fff8dc'; // Very ligth toast
+  if (uv < 4) return '#f5deb3'; // Light golden
+  if (uv < 6) return '#d2b48c'; // Toasted
+  if (uv < 8) return '#a0522d'; // Dark Toasted
+  if(uv<10) return '#a0522d'; // Very Dark
   return '#3e2723';             // Burnt
+}
+
+// match with upper code with PNG file! 
+function getToastImage(uv) {
+  if (uv < 1) return "toast1.png";
+  if (uv < 3) return "toast2.png";
+  if (uv < 5) return "toast3.png";
+  if (uv < 7) return "toast4.png";
+  if (uv < 9) return "toast5.png";
+  return "toast6.png";
 }
 
 async function searchLocation() {
@@ -15,12 +31,12 @@ async function searchLocation() {
   const geoRes = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${openCageKey}`);
   const geoData = await geoRes.json();
   if (!geoData.results.length) {
-    document.getElementById("uvInfo").innerText = "Location not found.";
+    document.getElementById("uvResultBox").innerText = "Location not found.";
     return;
   }
 
   const { lat, lng } = geoData.results[0].geometry;
-  displayUVData(lat, lng, location);
+  await fetchUVData(lat, lng, "today");
 }
 
 function getMyLocation() {
@@ -29,44 +45,11 @@ function getMyLocation() {
     return;
   }
 
-  navigator.geolocation.getCurrentPosition((position) => {
+  navigator.geolocation.getCurrentPosition(async (position) => {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
-    displayUVData(lat, lng, "your location");
+    await fetchUVData(lat, lng, "today");
   });
-}
-
-async function displayUVData(lat, lng, label) {
-  const meteoURL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=uv_index&timezone=auto`;
-  const weatherRes = await fetch(meteoURL);
-  const weatherData = await weatherRes.json();
-
-  const times = weatherData.hourly?.time;
-  const uvValues = weatherData.hourly?.uv_index;
-  if (!times || !uvValues) {
-    document.getElementById("uvInfo").innerText = "UV data not available.";
-    return;
-  }
-
-  const now = new Date();
-  const isoHour = now.toISOString().slice(0, 13);
-  const index = times.findIndex(t => t.startsWith(isoHour));
-  const currentUV = uvValues[index];
-
-  let html = `<strong>How Toasty is ${label} Right Now?: <span style="color: ${getUVColor(currentUV)}">${currentUV?.toFixed(1) ?? 'N/A'}</span></strong><br><br>`;
-  html += `<strong>Today's Hourly 🍞 Toast Level 🍞:</strong><br>`;
-
-  for (let i = 0; i < 24 && i < uvValues.length; i++) {
-    const uv = uvValues[i];
-    const time = times[i].replace("T", " ");
-    const bg = getUVColor(uv);
-    html += `
-      <div style="background-color: ${bg}; color: black; padding: 5px; margin: 3px; border-radius: 4px;">
-        ${time} → <strong>${uv}</strong>
-      </div>`;
-  }
-
-  document.getElementById("uvInfo").innerHTML = html;
 }
 
 async function showTomorrowUV() {
@@ -76,36 +59,87 @@ async function showTomorrowUV() {
   const geoRes = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${openCageKey}`);
   const geoData = await geoRes.json();
   if (!geoData.results.length) {
-    document.getElementById("uvInfo").innerText = "Location not found.";
+    document.getElementById("uvResultBox").innerText = "Location not found.";
     return;
   }
 
   const { lat, lng } = geoData.results[0].geometry;
+  await fetchUVData(lat, lng, "tomorrow");
+}
 
+// API connect with open-meteo, they give current and tomorrow UV information lively
+async function fetchUVData(lat, lng, day = "today") {
   const meteoURL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=uv_index&timezone=auto`;
   const weatherRes = await fetch(meteoURL);
   const weatherData = await weatherRes.json();
 
-  const times = weatherData.hourly?.time;
-  const uvValues = weatherData.hourly?.uv_index;
+  const allTimes = weatherData.hourly?.time || [];
+  const allUVs = weatherData.hourly?.uv_index || [];
 
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const dateStr = tomorrow.toISOString().slice(0, 10);
+  let dateToUse = new Date();
+  if (day === "tomorrow") {
+    dateToUse.setDate(dateToUse.getDate() + 1);
+  }
 
-  let html = `<strong>Tomorrow (${dateStr}) 🍞 Toast Level:</strong><br>`;
+  const dateStr = dateToUse.toISOString().slice(0, 10);
 
-  for (let i = 0; i < times.length; i++) {
-    if (times[i].startsWith(dateStr)) {
-      const uv = uvValues[i];
-      const time = times[i].replace("T", " ");
-      const bg = getUVColor(uv);
-      html += `
-        <div style="background-color: ${bg}; color: black; padding: 4px; margin: 2px; border-radius: 4px;">
-          ${time} → <strong>${uv}</strong>
-        </div>`;
+  // Filter times/UVs by selected date
+  currentTimes = [];
+  currentUVs = [];
+  for (let i = 0; i < allTimes.length; i++) {
+    if (allTimes[i].startsWith(dateStr)) {
+      currentTimes.push(allTimes[i]);
+      currentUVs.push(allUVs[i]);
     }
   }
 
-  document.getElementById("uvInfo").innerHTML = html;
+  if (!currentTimes.length) {
+    document.getElementById("uvResultBox").innerText = "No UV data available.";
+    return;
+  }
+
+  populateHourSelect(currentTimes);
+  document.getElementById("hourFilter").style.display = "block";
+}
+
+function populateHourSelect(times) {
+  const hourSelect = document.getElementById("hourSelect");
+  hourSelect.innerHTML = `<option value="">-- choose hour --</option>`;
+  times.forEach((time, i) => {
+    const hour = time.slice(11, 16); // "HH:MM"
+    const option = document.createElement("option");
+    option.value = i;
+    option.text = hour;
+    hourSelect.appendChild(option);
+  });
+}
+
+// information box toggle function > totally understand this function 
+function toggleLegend() {
+  const legend = document.getElementById("legend");
+  legend.style.display = legend.style.display === "none" ? "block" : "none";
+}
+
+function showSelectedHourUV() {
+  const index = document.getElementById("hourSelect").value;
+  const box = document.getElementById("uvResultBox");
+
+  if (index === "") {
+    box.innerHTML = "";
+    return;
+  }
+
+  const uv = currentUVs[index];
+  const time = currentTimes[index].replace("T", " ");
+  const bg = getUVColor(uv);
+  const img = getToastImage(uv);
+
+  box.innerHTML = `
+    <div style="background-color: ${bg}; color: black; padding: 16px; border-radius: 10px;">
+      <img src="assets/${img}" alt="UV Toast">
+
+      <div><strong>${time}</strong></div>
+      <div>UV Index: <strong>${uv}</strong></div>
+    </div>
+  `;
 }

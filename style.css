@@ -10,7 +10,7 @@ body {
 	margin: 2rem auto;
 	padding: 1rem;
 	background: white;
-	border-radius: 10px;
+	border-radius: 12px;
 	text-align: center;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
@@ -34,6 +34,14 @@ body {
 
   }
 
+  .btn-loc{
+	background-color: rgb(255, 131, 109);
+	color:white;
+  }
+.btn-tmr{
+	background-color: rgb(42, 114, 209);
+}
+
   button:hover{
 	background-color: #754e0a;
   }
@@ -41,18 +49,74 @@ body {
   .uv-box {
 	margin-top: 1.5rem;
 	font-size: 1rem;
-	text-align: left;
+	text-align: center;
+  }
+
+  select{
+	padding: 0.5rem;
+	margin: 0.5rem;
+	font-size: 1rem;
   }
   
  .uv-box div{
 	transition: all 0.3 ease;
+	margin-bottom: 1rem;
+ }
+
+ .uv-box img{
+	width:300px;
+	max-width: 100%;
+	display:block;
+	margin:1rem auto;
+	transition:  transform 0.3s ease-in-out;
  }
   
- .uv-box div:hover{
-	transform: scale(1.02);
-	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+ .uv-box img:hover{
+	transform: scale(1.5);
+
  }
 
  .buttons{
 	margin-bottom: 1rem;
+ }
+
+ .toast-legend{
+
+	text-align: left;
+	width:50%;
+	background:#fff8dc;
+	padding: 1rem;
+	margin:2rem auto;
+	border-radius: 12px;
+	border: 2px solid #754e0a;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+ }
+
+ .toast-legend h3{
+	margin-bottom: 1rem;
+ }
+
+ .legend-row{
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+ }
+
+ .legend-row img{
+	width:50px;
+	margin-right: 1rem;
+	border-radius: 7px;
+ }
+
+ .legend-toggle{
+	display:block;
+	margin:1rem auto;
+	padding: 10px;
+	background-color: rgb(30, 170, 30);
+	color:white;
+ }
+ .legend-toggle:hover{
+	background-color: 754e0a;
+	;
  }
