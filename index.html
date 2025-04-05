@@ -2,23 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UV Tracker Map</title>
+  <title>UV Tracker </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h2>☀️ UV Tracker for Tanning people ☀️</h2>
+    <h2>🍞 UV Toast Tracker 🍞</h2>
     <input type="text" id="locationInput" placeholder="Enter city (e.g., Seoul)">
-    <button onclick="searchLocation()">Check Your Sun! ☀️</button>
+    <button onclick="getMyLocation()">📍 Use my Location</button>
+    <button onclick="searchLocation()">☀️ Current Toast Level 🍞</button>
+    <button onclick="showTomorrowUV()">☀️ Tomorrow's Toast Level 🍞</button>
     <div id="uvInfo" class="uv-box"></div>
   </div>
 
-  <div id="map"></div>
-
   <script src="main.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmG9V_Fqejba96Ua95X8C4YfeM0A_8Ps4&callback=initMap">
-  </script>
 </body>
 </html>
