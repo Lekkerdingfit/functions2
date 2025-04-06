@@ -136,8 +136,10 @@ function showSelectedHourUV() {
 
   box.innerHTML = `
     <div style="background-color: ${bg}; color: black; padding: 16px; border-radius: 10px;">
-      <img src="assets/${img}" alt="UV Toast">
-
+       <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; font-family: 'Fredoka', sans-serif;">
+      You’ll be like…
+    </p>
+    <img src="assets/${img}" alt="UV Toast">
       <div><strong>${time}</strong></div>
       <div>UV Index: <strong>${uv}</strong></div>
     </div>
