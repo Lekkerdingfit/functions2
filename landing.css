@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+
+
+.landing{
+	text-align: center;
+	padding: 1rem;
+	background: url('assets/cloud.jpg') no-repeat center center fixed;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+h1{
+	font-family: "Bree Serif", serif;
+	font-size:3rem;
+	color:white;
+	margin-bottom: 1rem;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+p{
+	font-family: "Fredoka", sans-serif;
+	font-weight: 400;
+	font-size:20px;
+	line-height: 1.5;
+}
+
+.landing-toast{
+	width: 45vw;
+	max-width: 80%;
+	animation: floatUp 3s ease-in-out infinite;
+	margin-bottom: -5rem;
+	margin-top:-4rem;
+}
+
+.enter{
+	margin-top:1rem;
+	background-color: #754e0a;
+	color:white;
+	padding: 1rem 2rem;
+	font-size: 20px;
+	border-radius: 20px;
+	text-decoration: none;
+	font-family: "Fredoka", sans-serif;
+	font-weight: 500;
+	transition: background-color 0.3s ease;
+}
+.enter:hover{
+	background-color: rgb(155, 97, 11);
+}
+
+@keyframs floatUp{
+	0% { transform: translateY(0);}
+	50% { transform: translateY(-10px);}
+	100% { transform: translateY(0);}
+
+}
+
+.footer{
+	text-align: center;
+	font-size: 1rem;
+	color:black;
+	padding:1rem 0;
+	border-top:1px solid black;
+	margin-top: 3rem;
+	width:100%;
+	box-sizing: border-box;
+}
+

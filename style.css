@@ -2,7 +2,8 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: #f4f4f4;
+	background: url('assets/cloud.jpg') no-repeat center center fixed;
+	background-size: cover;
   }
   
   .container {
@@ -116,7 +117,25 @@ body {
 	background-color: rgb(30, 170, 30);
 	color:white;
  }
+
  .legend-toggle:hover{
 	background-color: 754e0a;
 	;
+ }
+
+ .home{
+	position: fixed;
+	top:2rem;
+	left:2rem;
+	z-index: 1000;
+	font-size: 3rem;
+	text-decoration: none;
+	display: inline-block;
+	transition: transform 0.2s ease-in-out;
+	margin-bottom: 1rem;
+	cursor:pointer;
+ }
+
+ .home:hover{
+	transform: scale(1.5);
  }
