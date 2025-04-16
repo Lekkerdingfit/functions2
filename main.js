@@ -1,6 +1,6 @@
 // I needed to convert coordinates into readble place names
 // I found this API: https://opencagedata.com/api
-// I used it to reverse-geocode latitude and longtitude
+//I used it to display the name of my current location.”
 const openCageKey = "00df02b1a18849ab9c07fce3a53de1e7";
 
 let currentTimes = [], currentUVs = [];
@@ -31,7 +31,7 @@ function getToastImage(uv) {
 
 // I wanted users to get their UV level by current location
 // I used Geolocation API: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
-// I also reverse- geocoded coordinates using OpenCage
+// I used it to display the name of my current location
 function getMyLocation() {
   if (!navigator.geolocation) return alert("Geolocation not supported.");
 
@@ -39,7 +39,7 @@ function getMyLocation() {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
 
-    // Reverse geocode: https://opencagedata.com/api
+    // showing the name of my location: https://opencagedata.com/api
     const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${openCageKey}`);
     const data = await res.json();
     const place = data.results[0]?.formatted || "Your Location";
@@ -55,7 +55,6 @@ function getMyLocation() {
 // I needed live UV data for the current day
 // I found this weather API: https://open-meteo.com/en/docs
 // It gives hourly UV Index values based on location
-
 async function fetchUVData(lat, lng) {
   const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=uv_index&timezone=auto`);
   const data = await res.json();
@@ -83,7 +82,7 @@ async function fetchUVData(lat, lng) {
 
 // I wanted users to pick a time for forcast
 // I created 'select' options dynamically from filtered times
-// Time slicing from ISO format (ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+// Time slicing from ISO format, I found it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 function populateHourSelect(times) {
   const select = document.getElementById("hourSelect");
@@ -106,6 +105,9 @@ function showSelectedHourUV() {
   const bg = getUVColor(uv);
   const img = getToastImage(uv);
 
+  // I wanted to show the UV result clearly
+  // I just updated the backgroun, image, and text using simple DOM methods
+  // Inspired from: https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
   box.style.display = "block";
   box.style.backgroundColor = bg;
   document.getElementById("toastImage").src = `assets/${img}`;
