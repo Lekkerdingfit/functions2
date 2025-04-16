@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+
+:root{
+	--font:"Bree Serif", serif;
+	--font2:"Fredoka", sans-serif;
+	--fontsize:1rem;
+}
+
+/* Default- Mobile size */
 body {
 	font-family: sans-serif;
 	margin: 0;
@@ -17,6 +28,7 @@ body {
 	text-align: center;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
+  
   
   input{
 	padding:0.5rem;
@@ -41,18 +53,59 @@ body {
 	background-color: rgb(255, 131, 109);
 	color:white;
   }
-.btn-tmr{
+  .btn-tmr{
 	background-color: rgb(42, 114, 209);
-}
+  }
 
   button:hover{
 	background-color: #754e0a;
   }
   
-  .uv-box {
+.uv-box {
 	margin-top: 1.5rem;
 	font-size: 1rem;
 	text-align: center;
+	padding: 17px;
+	border-radius: 10px;
+	color: black;
+	font-family: var(--font);
+	transition: all 0.3s ease;
+  }
+  
+  .toast-title {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+  }
+  
+  #toastUV{
+	font-weight: 500;
+	font-family: var(--font2);
+	font-size:15px;
+	background-color: #754e0a;
+	color:white;
+	width:fit-content;
+	margin: 1rem auto;
+	padding:0.8rem;
+	border-radius: 10px;
+	text-align: center;
+	
+  }
+
+  #toastTime{
+	font-size: 12px;
+	font-family: var(--font2);
+  }
+
+  .uv-box img{
+	width:300px;
+	max-width: 100%;
+	display:block;
+	margin:1rem auto;
+	transition:  transform 0.3s ease-in-out;
+ }
+
+  .uv-box img:hover {
+	transform: scale(1.5);
   }
 
   select{
@@ -61,23 +114,7 @@ body {
 	font-size: 1rem;
   }
   
- .uv-box div{
-	transition: all 0.3 ease;
-	margin-bottom: 1rem;
- }
 
- .uv-box img{
-	width:300px;
-	max-width: 100%;
-	display:block;
-	margin:1rem auto;
-	transition:  transform 0.3s ease-in-out;
- }
-  
- .uv-box img:hover{
-	transform: scale(1.5);
-
- }
 
  .buttons{
 	margin-bottom: 1rem;
@@ -145,11 +182,54 @@ body {
 	transform: scale(1.5);
  }
 
+ .q{
+	color:#754e0a;
+font-size:1.8rem;
+}
+
+.toast-info:hover{
+	background-color: transparent;
+	transform: scale(1.5);
+}
+
+.modal{
+	display:none;
+	position: fixed;
+	z-index: 999;
+	left:0; top:0;
+	width:100%; height:100%;
+	
+}
+
+.modal-info{
+	
+	background-color: white;
+	border: 1px solid black;
+	margin: 15vh auto 0;
+	padding:10px;
+	border-radius: 20px;
+	width:90%;
+	max-width: 500px;
+	z-index: 1000;
+}
+
+.close-btn{
+	float:right;
+	font-size: 1em;
+	cursor: pointer;
+	width:22px;
+	height:22px;
+	line-height: 20px;
+	border-radius: 50%;
+	background:#754e0a;
+	text-align: center;
+	color:white;
+}
 
 
 
 
-
+/* Desktop size */
 @media(min-width:1280px){
 body {
 	font-family: sans-serif;
@@ -159,6 +239,63 @@ body {
 	background-size: cover;
   }
   
+  .q{
+	color:white;
+}
+
+.close-btn{
+	width:28px;
+	height:28px;
+	font-size:1.2em;
+	line-height: 25px;
+
+}
+.uv-box {
+	margin-top: 1.5rem;
+	font-size: 1rem;
+	text-align: center;
+	padding: 16px;
+	border-radius: 10px;
+	color: black;
+	font-family: var(--font);
+	transition: all 0.3s ease;
+  }
+  
+  .toast-title {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+  }
+  
+  #toastUV{
+	font-weight: 500;
+	font-family: var(--font2);
+	font-size:20px;
+	background-color: #754e0a;
+	color:white;
+	width:fit-content;
+	margin: 1rem auto;
+	padding:1rem;
+	border-radius: 10px;
+	text-align: center;
+  }
+
+  #toastTime{
+	font-size: 15px;
+	font-family: var(--font2);
+  }
+
+  .uv-box img{
+	width:300px;
+	max-width: 100%;
+	display:block;
+	margin:1rem auto;
+	transition:  transform 0.3s ease-in-out;
+ }
+
+  .uv-box img:hover {
+	transform: scale(1.5);
+  }
+
   .container {
 	max-width: 700px;
 	margin: 2rem auto;
@@ -200,11 +337,6 @@ body {
 	background-color: #754e0a;
   }
   
-  .uv-box {
-	margin-top: 1.5rem;
-	font-size: 1rem;
-	text-align: center;
-  }
 
   select{
 	padding: 0.5rem;
@@ -212,23 +344,6 @@ body {
 	font-size: 1rem;
   }
   
- .uv-box div{
-	transition: all 0.3 ease;
-	margin-bottom: 1rem;
- }
-
- .uv-box img{
-	width:300px;
-	max-width: 100%;
-	display:block;
-	margin:1rem auto;
-	transition:  transform 0.3s ease-in-out;
- }
-  
- .uv-box img:hover{
-	transform: scale(1.5);
-
- }
 
  .buttons{
 	margin-bottom: 1rem;
@@ -306,4 +421,50 @@ body {
  .home:hover{
 	transform: scale(1.5);
  }
+}
+
+.toast-info{
+	position: fixed;
+	bottom:10px;
+	right: 10px;
+	font-size: 1.8rem;
+	background-color: transparent;
+	/* border-radius: 50%; */
+	padding:1em;
+	cursor:pointer;
+	z-index: 1000;
+	font-family: var(--font2);
+	
+}
+
+.toast-info:hover{
+	background-color: transparent;
+	transform: scale(1.5);
+}
+
+.modal{
+	display:none;
+	position: fixed;
+	z-index: 999;
+	left:0; top:0;
+	width:100%; height:100%;
+	
+}
+
+/* .modal-info{
+margin:10% auto;
+} */
+
+
+.close-btn:hover{
+	background-color: #e9cc4c;
+	color:#754e0a;
+}
+
+
+
+h3{
+	text-align: center;
+	padding-left:3rem;
+
 }

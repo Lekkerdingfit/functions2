@@ -9,56 +9,45 @@
 <body>
   <div class="container">
     <h2>🍞 UV Toast Tracker 🍞</h2>
-    <input type="text" id="locationInput" placeholder="Enter city (e.g., Seoul)">
+    <!-- <input type="text" id="locationInput" placeholder="Enter city (e.g., Seoul)"> -->
     <div class="buttons">
-    <button class="btn-loc" onclick="getMyLocation()">Use my Location 📍 </button>
-    <button class="btn-cur" onclick="searchLocation()"> Current Toast Level 🍞</button>
-    <button class="btn-tmr" onclick="showTomorrowUV()"> Tomorrow's Toast Level 🍞</button>
+    <button class="btn-loc" onclick="getMyLocation()">Use my Location  </button>
+    <!-- <button class="btn-cur" onclick="searchLocation()"> Current Toast Level 🍞</button> -->
+    <!-- <button class="btn-tmr" onclick="showTomorrowUV()"> Tomorrow's Toast Level 🍞</button> -->
   </div>
 
+  <div id="locationInfo" ></div>
 <div id="hourFilter" style="display:none;">
   <label for="hourSelect"> Select Hour:</label>
   <select id="hourSelect" onchange="showSelectedHourUV()">
-    <option value="">-- chooser hour --</option>
+    <option value="">-- choose hour --</option>
   </select>
 </div>
 
-<div id="uvResultBox" class="uv-box"></div>
+<div id="uvResultBox" class="uv-box" style="display:none;">
+  <p class="toast-title">You’ll be like…</p>
+  <img id="toastImage" src="" alt="Toast Image" />
+  <div id="toastUV"></div>
+  <div id="toastTime"></div>
+</div>
 </div>
 
-<button onclick="toggleLegend()" class="legend-toggle">
-  What do the toast levels mean?
-</button>
+<button class="toast-info" onclick="openLegendModal()">🍞 <span class="q">?</span></button>
 
-<div id="legend" class="toast-legend" style="display:none;">
-  <h3>  🍞 Toast Level Meaning</h3>
-  <div class="legend-row">
-    <img src="assets/toast1.png" alt="toast 1">
-    <span>☀️UV 0-1: Fresh Bread <br>(Very low risk)</span>
-  </div>
-  <div class="legend-row">
-    <img src="assets/toast2.png" alt="toast 2">
-    <span>☀️UV 2-3: Lightly Toasted <br>(Low risk)</span>
-  </div>
-  <div class="legend-row">
-    <img src="assets/toast3.png" alt="toast 3">
-    <span>☀️UV 4-5: Medium Toast <br>(Moderate risk)</span>
-  </div>
-  <div class="legend-row">
-    <img src="assets/toast4.png" alt="toast 4">
-    <span>☀️UV 6-7: Golden Brown <br>(High risk)</span>
-  </div>
-  <div class="legend-row">
-    <img src="assets/toast5.png" alt="toast 5">
-    <span>☀️UV 8-9: Dark Toast <br>(Very high risk)</span>
-  </div>
-  <div class="legend-row">
-    <img src="assets/toast6.png" alt="toast 6">
-    <span>☀️UV 10+: Burnt Toast <br>(Extreme risk)</span>
-  </div>
-
+<div id="legendModal" class="modal">
+<div class="modal-info">
+<span class="close-btn" onclick="closeLegendModal()"> &times;</span>
+<h3> Toast Level Meaning 🍞</h3>
+    <div class="legend-row"><img src="assets/toast1.png"><span>☀️ UV 0–1.9: Fresh Bread<br>(Very low risk)</span></div>
+    <div class="legend-row"><img src="assets/toast2.png"><span>☀️ UV 2–3.9: Lightly Toasted <br>(Low risk)</span></div>
+    <div class="legend-row"><img src="assets/toast3.png"><span>☀️ UV 4–5.9: Medium Toast<br>(Moderate risk)</span></div>
+    <div class="legend-row"><img src="assets/toast4.png"><span>☀️ UV 6–7.9: Golden Brown <br>(High risk)</span></div>
+    <div class="legend-row"><img src="assets/toast5.png"><span>☀️ UV 8–9.9: Dark Toast<br>(Very high risk)</span></div>
+    <div class="legend-row"><img src="assets/toast6.png"><span>☀️ UV 10+: Burnt Toast<br>(Extreme risk)</span></div>
 
 </div>
+</div>
+
 
 <a href="index.html" class="home">
 	☀️
