@@ -113,6 +113,7 @@ function showSelectedHourUV() {
   document.getElementById("toastImage").src = `assets/${img}`;
   document.getElementById("toastUV").innerText = `UV Index: ${uv}`;
   document.getElementById("toastTime").innerText = time;
+  updateUVIcons(uv);
 }
 
   // I needed a simple toggle to show/hide UV index info
@@ -121,6 +122,31 @@ function showSelectedHourUV() {
     const legend = document.getElementById("legend");
     legend.style.display = legend.style.display === "none" ? "block" : "none";
   }
+
+  //  I wanted to show recommended sun protection items such as sunglasses and suncream based on UV level
+  //  I found this code in here:https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+  //  I found this code in here:https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
+  //  I found that UV thresholds are based on WHO guideline
+function updateUVIcons(uvIndex){
+  const sunglassesIcon = document.getElementById('sunglassesIcon');
+  const suncreamIcon = document.getElementById('suncreamIcon');
+
+  [sunglassesIcon, suncreamIcon].forEach(icon => {
+    icon.classList.remove('show');
+    icon.classList.add('hidden');
+  });
+
+  if (uvIndex >= 3) {
+    sunglassesIcon.classList.remove('hidden');
+    setTimeout(() => sunglassesIcon.classList.add('show'), 100);
+  }
+  if (uvIndex >= 4) {
+    suncreamIcon.classList.remove('hidden');
+    setTimeout(() => suncreamIcon.classList.add('show'), 100);
+  }
+
+}
+
 
   // Modal interaction for explaning UV levels
   // Custom modal UI with basic click-outside to close
