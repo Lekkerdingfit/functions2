@@ -67,7 +67,8 @@ p{
 	transition: background-color 0.3s ease;
 }
 .enter:hover{
-	background-color: rgb(155, 97, 11);
+	background-color:#e9cc4c;
+	color:#754e0a;
 }
 
 
@@ -134,7 +135,8 @@ p{
 	transition: background-color 0.3s ease;
 }
 .enter:hover{
-	background-color: rgb(155, 97, 11);
+	background-color:#e9cc4c;
+	color:#754e0a;
 }
 
 

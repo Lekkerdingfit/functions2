@@ -50,15 +50,13 @@ body {
   }
 
   .btn-loc{
-	background-color: rgb(255, 131, 109);
+	background-color:#754e0a;
 	color:white;
   }
-  .btn-tmr{
-	background-color: rgb(42, 114, 209);
-  }
-
+ 
   button:hover{
-	background-color: #754e0a;
+	background-color:#e9cc4c;
+	color:#754e0a;
   }
   
 .uv-box {
@@ -359,15 +357,13 @@ body {
   }
 
   .btn-loc{
-	background-color: rgb(255, 131, 109);
+	background-color:#754e0a;
 	color:white;
   }
-.btn-tmr{
-	background-color: rgb(42, 114, 209);
-}
 
   button:hover{
-	background-color: #754e0a;
+	background-color:#e9cc4c;
+	color:#754e0a;
   }
   
 
