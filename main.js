@@ -19,7 +19,7 @@ function getUVColor(uv){
 
 // I wanted toast visual to match UV levels exactly
 // I mapped UV ranges to PNG files (from lightest to burnt)
-// Inspired by: https://www.uvlens.com/
+// Inspired by: https://www.uvlens.com/ > gave me more ideas from this website
 function getToastImage(uv) {
   if (uv < 2) return "toast1.png";
   if (uv < 4) return "toast2.png";
