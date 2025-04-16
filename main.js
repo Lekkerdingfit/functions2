@@ -114,6 +114,13 @@ function showSelectedHourUV() {
   document.getElementById("toastUV").innerText = `UV Index: ${uv}`;
   document.getElementById("toastTime").innerText = time;
   updateUVIcons(uv);
+
+  // const toastImg = document.getElementById("toastImage");
+  // toastImg.classList.remove ("toast-animate");
+  // void toastImg.offsetWidth;
+  // toastImg.classList.add ("toast-animate");
+ 
+
 }
 
   // I needed a simple toggle to show/hide UV index info

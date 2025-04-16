@@ -43,8 +43,11 @@ p{
 	font-weight: 400;
 	font-size:16px;
 	line-height: 1.2;
-	padding: 0 2rem;
+	padding: 0.7rem;
 	margin-bottom:1rem;
+	background-color: white;
+	border-radius: 15px;
+	
 
 }
 
@@ -56,8 +59,8 @@ p{
 
 .enter{
 	margin-top:1rem;
-	background-color: #754e0a;
-	color:white;
+	background-color:#e9cc4c;
+	color:#754e0a;
 	padding: 1rem 2rem;
 	font-size: 20px;
 	border-radius: 20px;
@@ -67,8 +70,8 @@ p{
 	transition: background-color 0.3s ease;
 }
 .enter:hover{
-	background-color:#e9cc4c;
-	color:#754e0a;
+	background-color:#754e0a;
+	color:white;
 }
 
 
@@ -113,6 +116,7 @@ p{
 	font-size:calc(var(--fontsize)*1.2);
 	line-height: 1.5;
 	margin-top:2rem;
+	padding:1rem;
 }
 
 .landing-toast{
@@ -124,8 +128,8 @@ p{
 
 .enter{
 	margin-top:1rem;
-	background-color: #754e0a;
-	color:white;
+	background-color:#e9cc4c;
+	color:#754e0a;
 	padding: 1rem 2rem;
 	font-size: 20px;
 	border-radius: 20px;
@@ -135,8 +139,8 @@ p{
 	transition: background-color 0.3s ease;
 }
 .enter:hover{
-	background-color:#e9cc4c;
-	color:#754e0a;
+	background-color:#754e0a;
+	color:white;
 }
 
 
