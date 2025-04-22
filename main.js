@@ -20,6 +20,7 @@ function getUVColor(uv){
 // I wanted toast visual to match UV levels exactly
 // I mapped UV ranges to PNG files (from lightest to burnt)
 // Inspired by: https://www.uvlens.com/ > gave me more ideas from this website
+// I undesrtand this function, I used above as well. this is easy to contorl UV level
 function getToastImage(uv) {
   if (uv < 2) return "toast1.png";
   if (uv < 4) return "toast2.png";
@@ -119,6 +120,9 @@ function showSelectedHourUV() {
   // toastImg.classList.remove ("toast-animate");
   // void toastImg.offsetWidth;
   // toastImg.classList.add ("toast-animate");
+  // I wanted the toast image to appear automatically after selecting the time
+  // This is simple function, It was easy to understand add & remove.I used this fuctions quite frequently
+
  const toastImg = document. getElementById("toastImage");
  toastImg.classList.remove("toast-animate");
  void toastImg.offsetWidth;
@@ -126,8 +130,8 @@ function showSelectedHourUV() {
 
 }
 
-  // I needed a simple toggle to show/hide UV index info
-  // Pure JS DOM toggle for visual legend section
+  //  I needed a simple toggle to show/hide UV index info
+  //  Pure JS DOM toggle for visual legend section
   function toggleLegend() {
     const legend = document.getElementById("legend");
     legend.style.display = legend.style.display === "none" ? "block" : "none";
@@ -137,6 +141,7 @@ function showSelectedHourUV() {
   //  I found this code in here:https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
   //  I found this code in here:https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
   //  I found that UV thresholds are based on WHO guideline
+  //  this one is also I used before, add&remove functions. It was easy to use again.
 function updateUVIcons(uvIndex){
   const sunglassesIcon = document.getElementById('sunglassesIcon');
   const suncreamIcon = document.getElementById('suncreamIcon');
@@ -157,9 +162,11 @@ function updateUVIcons(uvIndex){
 
 }
 
-
   // Modal interaction for explaning UV levels
   // Custom modal UI with basic click-outside to close
+  // I used a different modal function here because it's a custom-styled modal (not <dialog>), 
+  // which allows more flexible styling and animation control.
+  // I learrned from this website:https://www.w3schools.com/howto/howto_css_modals.asp
   function openLegendModal(){
     document.getElementById("legendModal").style.display = "block";
   }

@@ -31,10 +31,10 @@ html, body{
 
 h1{
 	font-family: var(--font);
-	font-size:2.5rem;
+	font-size:2.8rem;
 	color:white;
-	line-height: 2.5rem;
-	margin-top: -1rem;
+	line-height: 2.9rem;
+	margin-top: -2rem;
 	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -54,8 +54,8 @@ p{
 
 .landing-toast{
 	width: 100%;
-	max-width: 300px;
-	margin: 2rem 0 1rem;
+	max-width: 400px;
+	margin:0.4rem 0 1rem;
 }
 .landing-toast:hover{
 	content:url('assets/tanningbread.png');
@@ -70,8 +70,8 @@ p{
 	margin-top:1rem;
 	background-color:#e9cc4c;
 	color:#754e0a;
-	padding: 1rem 2rem;
-	font-size: 20px;
+	padding: 1rem 1.5rem;
+	font-size: 17px;
 	border-radius: 20px;
 	text-decoration: none;
 	font-family: var(--font2);
@@ -86,14 +86,14 @@ p{
 
 .footer{
 	text-align: center;
-	font-size: var(--fontsize);
+	font-size:12px;
 	color:black;
 	padding:1rem 0;
-	/* border-top:1px solid black; */
+	border-top:0.6px solid black;
 	margin-top: 3rem;
 	width:100%;
 	box-sizing: border-box;
-	font-family: var(--font);
+	font-family: var(--font2);
 }
 
 
@@ -135,6 +135,7 @@ p{
 	max-width: 90vw;
 	margin-bottom: -5rem;
 	margin-top:-4rem;
+	transition-delay: 0.3s;
 }
 
 .landing-toast:hover{
@@ -144,6 +145,7 @@ p{
 	display:block;
 	margin: 0 auto;
 	object-fit: contain;
+	transition-delay: 0.3s;
 }
 
 .enter{
@@ -167,9 +169,10 @@ p{
 .footer{
 	text-align: center;
 	font-size: var(--fontsize);
+	font-family: var(--font2);
 	color:black;
 	padding:1rem 0;
-	/* border-top:1px solid black; */
+	border-top:0.7px solid black;
 	margin-top: 3rem;
 	width:100%;
 	box-sizing: border-box;
