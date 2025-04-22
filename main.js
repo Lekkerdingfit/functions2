@@ -119,7 +119,10 @@ function showSelectedHourUV() {
   // toastImg.classList.remove ("toast-animate");
   // void toastImg.offsetWidth;
   // toastImg.classList.add ("toast-animate");
- 
+ const toastImg = document. getElementById("toastImage");
+ toastImg.classList.remove("toast-animate");
+ void toastImg.offsetWidth;
+ toastImg.classList.add("toast-animate")
 
 }
 

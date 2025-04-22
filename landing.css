@@ -34,7 +34,7 @@ h1{
 	font-size:2.5rem;
 	color:white;
 	line-height: 2.5rem;
-	margin-top: -2rem;
+	margin-top: -1rem;
 	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -46,7 +46,8 @@ p{
 	padding: 0.7rem;
 	margin-bottom:1rem;
 	background-color: white;
-	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.373); 
+
 	
 
 }
@@ -55,6 +56,14 @@ p{
 	width: 100%;
 	max-width: 300px;
 	margin: 2rem 0 1rem;
+}
+.landing-toast:hover{
+	content:url('assets/tanningbread.png');
+	height:auto;
+	width:auto;
+	display:block;
+	margin: 0 auto;
+	object-fit: contain;
 }
 
 .enter{
@@ -80,7 +89,7 @@ p{
 	font-size: var(--fontsize);
 	color:black;
 	padding:1rem 0;
-	border-top:1px solid black;
+	/* border-top:1px solid black; */
 	margin-top: 3rem;
 	width:100%;
 	box-sizing: border-box;
@@ -117,13 +126,24 @@ p{
 	line-height: 1.5;
 	margin-top:2rem;
 	padding:1rem;
+	background-color: rgba(255, 255, 255, 0.373); 
+	
 }
 
 .landing-toast{
 	width: 45vw;
-	max-width: 80%;
+	max-width: 90vw;
 	margin-bottom: -5rem;
 	margin-top:-4rem;
+}
+
+.landing-toast:hover{
+	content:url('assets/tanningbread.png');
+	height:auto;
+	width:auto;
+	display:block;
+	margin: 0 auto;
+	object-fit: contain;
 }
 
 .enter{
@@ -149,7 +169,7 @@ p{
 	font-size: var(--fontsize);
 	color:black;
 	padding:1rem 0;
-	border-top:1px solid black;
+	/* border-top:1px solid black; */
 	margin-top: 3rem;
 	width:100%;
 	box-sizing: border-box;

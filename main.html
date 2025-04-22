@@ -11,7 +11,7 @@
   <div class="container">
     <h2>🍞 UV Toast Tracker 🍞</h2>
     <div class="buttons">
-    <button class="btn-loc" onclick="getMyLocation()">Use my Location  </button>
+    <button class="btn-loc" onclick="getMyLocation()">Use my Location 📍 </button>
   </div>
 
   <!-- This part lets the user select specific hour for UV data -->
@@ -27,17 +27,22 @@
 <!-- This part shows UV results visually -->
 <!-- JS updates the background, toast image, UV index, and time-->
 <div id="uvResultBox" class="uv-box" style="display:none;">
-  <p class="toast-title">You’ll be like…</p>
+  <p class="toast-title">You’ll be like..</p>
   <img id="toastImage" src="" alt="Toast Image" />
   <div id="toastUV"></div>
+  <hr class="hr">
   <div id="toastTime"></div>
   <div id="uvIcons" class="uv-icons">
 <div id="sunglassesIcon" class="circle-icon icon hidden">
   <img src="assets/sunglasses.png" alt="Sunglasses Icon">
+  <div class="hover-text">Wearing Sunglasses</div>
 </div>
+
 <div id="suncreamIcon" class="circle-icon icon hidden">
   <img src="assets/suncream.png" alt="Suncream Icon">
+  <div class="hover-text">Put Suncream</div>
 </div>
+
   </div>
 </div>
 </div>
@@ -45,12 +50,12 @@
 <!-- This part shows Modal, It shows the explanation of toast level, Each row matches
  a toast image with a UV level range and UV risk -->
 
-<button class="toast-info" onclick="openLegendModal()">🍞 <span class="q">?</span></button>
+<button class="toast-info" onclick="openLegendModal()">🍞 </button>
 
 <div id="legendModal" class="modal">
 <div class="modal-info">
 <span class="close-btn" onclick="closeLegendModal()"> &times;</span>
-<h3> Toast Level Meaning 🍞</h3>
+<h3> Toast Level Meaning</h3>
     <div class="legend-row"><img src="assets/toast1.png"><span>☀️ UV 0–1.9: Fresh Bread<br>(Very low risk)</span></div>
     <div class="legend-row"><img src="assets/toast2.png"><span>☀️ UV 2–3.9: Lightly Toasted <br>(Low risk)</span></div>
     <div class="legend-row"><img src="assets/toast3.png"><span>☀️ UV 4–5.9: Medium Toast<br>(Moderate risk)</span></div>
