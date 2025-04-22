@@ -52,6 +52,41 @@ p{
 
 }
 
+.toast-fix{
+	position:relative;
+	width:100%;
+	max-width:400px;
+	margin: 1rem auto;
+	z-index: 1;
+	}
+	
+	.toast-fix a{
+		z-index: 3;
+		position:relative;
+		display: block;
+	}
+	.toast-fix::after{
+		content:"";
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background-image: url('assets/tanningbread.png');
+		background-size: 120%;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		z-index: 1;
+	}
+	.toast-fix:hover .landing-toast{
+		opacity: 0;
+	}
+	
+	.toast-fix:hover::after{
+		opacity: 1;
+	}
 .landing-toast{
 	width: 100%;
 	max-width: 400px;
@@ -88,9 +123,10 @@ p{
 	text-align: center;
 	font-size:12px;
 	color:black;
-	padding:1rem 0;
+	padding:1.3rem 0;
 	border-top:0.6px solid black;
-	margin-top: 3rem;
+	margin-top: 2rem;
+	margin-bottom:-2rem;
 	width:100%;
 	box-sizing: border-box;
 	font-family: var(--font2);
@@ -131,7 +167,10 @@ p{
 }
 .toast-fix{
 position:relative;
-width:100%
+width:100%;
+justify-content: center;
+align-items: center;
+display: flex;
 max-width:400px;
 margin: 1rem auto;
 z-index: 1;
@@ -155,7 +194,10 @@ z-index: 1;
 	background-position: center;
 	opacity: 0;
 	transition: opacity 0.4s ease;
+	transform: scale(1.7);
 	z-index: 1;
+	display:block;
+	margin: 0 auto;
 }
 .toast-fix:hover .landing-toast{
 	opacity: 0;
@@ -211,6 +253,7 @@ z-index: 1;
 	padding:1rem 0;
 	border-top:0.7px solid black;
 	margin-top: 3rem;
+	margin-bottom: 1rem;
 	width:100%;
 	box-sizing: border-box;
 }
