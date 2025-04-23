@@ -22,14 +22,12 @@ html, body{
 	background: url('assets/cloud.jpg') no-repeat center center fixed;
 	background-size:cover;
 	min-height: 100vh;
-	height: 100dvh; /* this one for mobile full screen */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content:center;
 	position:relative;
-	overflow: hidden;
-
+	
 }
 
 h1{
