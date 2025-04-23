@@ -21,7 +21,8 @@ html, body{
 .landing{
 	text-align: center;
 	padding: 1rem;
-	
+	background: url('assets/cloud.jpg') no-repeat center center fixed;
+	background-size:cover;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
