@@ -28,6 +28,7 @@ html, body{
 	align-items: center;
 	justify-content:center;
 	position:relative;
+	overflow: hidden;
 
 }
 
@@ -129,7 +130,7 @@ p{
 	padding:1.3rem 0;
 	border-top:0.6px solid black;
 	margin-top: 2rem;
-	margin-bottom:0;
+	margin-bottom:2rem;
 	padding-bottom: 0.5rem;
 	width:100%;
 	box-sizing: border-box;
